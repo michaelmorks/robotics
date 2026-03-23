@@ -1,0 +1,11 @@
+<package>
+  <name>target_follower</name>
+  <version>0.0.1</version>
+  <description>Target following package for SIT310</description>
+  <maintainer email="michaelmorks@deakin.edu.au">Michael Morks</maintainer>
+  <license>None</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>duckietown_msgs</depend>
+</package>

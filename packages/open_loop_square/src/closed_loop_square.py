@@ -40,6 +40,17 @@ class ClosedLoopSquare:
         self.left_ticks = msg.data
         self.check_goal()
 
+def check_goal(self):
+    if not self.moving:
+        return
+    avg_ticks = abs(((self.left_ticks - self.left_ticks_start) + 
+                     (self.right_ticks - self.right_ticks_start)) / 2)
+    rospy.loginfo_throttle(1, "Ticks so far: %d / %d", avg_ticks, self.target_ticks)
+    if avg_ticks >= self.target_ticks:
+        self.stop_robot()
+        self.moving = False
+        rospy.loginfo("Goal reached! Ticks: %d", avg_ticks)
+
     def right_encoder_callback(self, msg):
         self.right_ticks = msg.data
         self.check_goal()
